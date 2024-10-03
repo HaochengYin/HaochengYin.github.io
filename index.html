@@ -35,13 +35,14 @@
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2ETZM1K52"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-Z2ETZM1K52');
   </script>
 
 </head>
@@ -473,40 +474,6 @@
         <i class="bi bi-dot"></i>
         <a href="https://seas.harvard.edu/about-us/visit-us/accessibility-seas">Accessibility</a>
       </div>
-
-      <!-- Updated div for the visitor count -->
-      <div class="text-muted" id="visitor-count">
-        <span id="count">Loading...</span> unique visitors since September 2024
-      </div>
-
-      <!-- Error message div -->
-      <div id="error-message" style="color: red; font-size: 12px;"></div>
-
-      <script>
-        // Set the current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Fetch and update unique visitor count
-        fetch('https://api.countapi.xyz/get/haochengyin.github.io/visits-since-sept-2024')
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            if (data && data.value !== undefined) {
-              document.getElementById('count').textContent = data.value.toLocaleString();
-            } else {
-              throw new Error('Invalid data received from API');
-            }
-          })
-          .catch(error => {
-            console.error('Error fetching visitor count:', error);
-            document.getElementById('count').textContent = 'Unable to load';
-            document.getElementById('error-message').textContent = `Error: ${error.message}`;
-          });
-      </script>
     </footer>
 
   </div>
