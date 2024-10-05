@@ -38,15 +38,11 @@ document.getElementById('year').innerHTML = d.getFullYear();
 
 var snippets = document.querySelectorAll('.snippet');
 
-[].forEach.call(snippets, function(snippet) {
-  if (snippet.firstChild && snippet.firstChild.nodeType === 1) { // Ensure firstChild is an element node
-    snippet.firstChild.insertAdjacentHTML(
-      'beforebegin',
-      '<button class="btn" data-bs-toggle="tooltip" data-bs-title="Copy to clipboard" data-clipboard-snippet><i class="bi bi-clipboard"></i></button>'
-    );
-  } else {
-    console.warn("Snippet does not have a valid first child that is an element.");
-  }
+snippets.forEach(function(snippet) {
+  snippet.insertAdjacentHTML(
+    'afterbegin',
+    '<button class="btn" data-bs-toggle="tooltip" data-bs-title="Copy to clipboard" data-clipboard-snippet><i class="bi bi-clipboard"></i></button>'
+  );
 });
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
