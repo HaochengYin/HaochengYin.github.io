@@ -260,7 +260,7 @@ a:hover {
   font-weight: bold;
 }
 
-.pub-wrapper .figure img {
+.pub-wrapper .figure img, .figure video {
   max-width: 240px;
   width: 100%;
 }
