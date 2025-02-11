@@ -83,6 +83,11 @@ a:hover {
   font-weight: bold;
 }
 
+.conf_award {
+  color: red;
+  font-weight: bold;
+}
+
 .section-item {
   margin-top: 20px;
 }
