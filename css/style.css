@@ -1,6 +1,7 @@
 :root {
 
-  --cardinal: #750014;
+  /* --cardinal: #750014; */
+  --cardinal: #857437;
   --very-light-orange: #fdf3ea;
   --very-light-gray: #f1f1f1;
   --light-gray: #c2c0bf;
@@ -21,7 +22,7 @@
   --code-line-height: 18px;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Lato';
   src: url('../fonts/lato/Lato-Regular.woff2') format('woff2');
   font-style: normal;
@@ -35,10 +36,10 @@
   font-style: normal;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-}
+} */
 
 body {
-  font-family: "Lato", "Helvetica Neue", Ubuntu, Arial, PingFang, SimHei, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Ubuntu, Arial, PingFang, SimHei, sans-serif;
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: black;
