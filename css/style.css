@@ -85,7 +85,7 @@ a:hover {
 }
 
 .conf_award {
-  color: red;
+  color: #c0392b;
   font-weight: bold;
 }
 
@@ -192,6 +192,15 @@ a:hover {
   margin-right: -3px;
 }
 
+.bio-wrapper #more-trigger {
+  color: #003057;
+}
+
+.bio-wrapper #more-trigger:hover {
+  color: #003057;
+  text-decoration: underline;
+}
+
 /*------------------
  * Name
  *------------------*/
@@ -230,6 +239,7 @@ a:hover {
   margin-top: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
+  border-top: 1px solid #f0ece0;
 }
 
 .pub-wrapper .title a {
@@ -238,31 +248,47 @@ a:hover {
 }
 
 .pub-wrapper .title a:hover {
-  color: black;
+  color: var(--cardinal);
+  text-decoration: none;
 }
 
-.pub-wrapper .link .venue {
-  font-weight: bold;
-}
 
 .pub-wrapper .link a {
-  color: black;
+  color: #4682b4;
 }
 
 .pub-wrapper .link a:hover {
-  color: black;
+  color: #4682b4;
+  text-decoration: underline;
 }
 
+.pub-wrapper .link .venue a {
+  color: #003057;
+  font-weight: bold;
+}
+
+.pub-wrapper .link .venue a:hover {
+  color: #003057;
+  text-decoration: underline;
+}
+
+
+
 .pub-wrapper .authors {
-  color: var(--dark-gray);
+  color: #606060;
 }
 
 .pub-wrapper .authors a {
-  color: var(--dark-gray);
+  color: #606060;
 }
 
-.pub-wrapper .authors me {
+/* .pub-wrapper .authors me {
   color: var(--dark-gray);
+  font-weight: bold;
+} */
+
+.pub-wrapper .authors me {
+  color: #4a4a4a;
   font-weight: bold;
 }
 
