@@ -69,6 +69,25 @@ clipboardSnippets.on('success', function(e) {
 });
 
 
+// Demo videos that hold on the last frame before looping
+
+var delayedLoopVideos = document.querySelectorAll('video[data-loop-delay]');
+
+delayedLoopVideos.forEach(function(video) {
+  var delay = parseInt(video.dataset.loopDelay, 10) || 1000;
+  video.addEventListener('ended', function() {
+    setTimeout(function() {
+      video.currentTime = 0;
+      // play() rejects when the browser blocks playback (backgrounded tab, power-save)
+      var played = video.play();
+      if (played) {
+        played.catch(function() {});
+      }
+    }, delay);
+  });
+});
+
+
 // External links
 
 document.addEventListener("DOMContentLoaded", function() {
