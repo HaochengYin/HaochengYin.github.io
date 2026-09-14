@@ -25,8 +25,15 @@ function profile_leave() {
   profile.src = "assets/profile/profile_img.webp";
 }
 
-profile_credit.addEventListener("mouseenter", profile_enter);
-profile_credit.addEventListener("mouseleave", profile_leave);
+// Touch taps fire mouseenter but never mouseleave, leaving the photo stuck
+var canHover = window.matchMedia &&
+               window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+if (canHover) {
+  profile_credit.addEventListener("mouseenter", profile_enter);
+  profile_credit.addEventListener("mouseleave", profile_leave);
+}
+
 profile_leave();
 
 // Footer year
@@ -69,23 +76,54 @@ clipboardSnippets.on('success', function(e) {
 });
 
 
-// Demo videos that hold on the last frame before looping
+// Demo videos: load on demand, then hold on the last frame before looping
 
 var delayedLoopVideos = document.querySelectorAll('video[data-loop-delay]');
+
+function playDemo(video) {
+  // play() rejects when the browser blocks playback (backgrounded tab, power-save)
+  var played = video.play();
+  if (played) {
+    played.catch(function() {});
+  }
+}
 
 delayedLoopVideos.forEach(function(video) {
   var delay = parseInt(video.dataset.loopDelay, 10) || 1000;
   video.addEventListener('ended', function() {
     setTimeout(function() {
       video.currentTime = 0;
-      // play() rejects when the browser blocks playback (backgrounded tab, power-save)
-      var played = video.play();
-      if (played) {
-        played.catch(function() {});
-      }
+      playDemo(video);
     }, delay);
   });
 });
+
+// Only fetch a demo once it is close to the viewport, so the page does not pull
+// every clip at load. Browsers without IntersectionObserver just play immediately.
+if ('IntersectionObserver' in window) {
+  var demoObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+      var video = entry.target;
+      demoObserver.unobserve(video);
+      video.preload = 'auto';
+      video.load();
+      playDemo(video);
+    });
+  }, { rootMargin: '200px' });
+
+  delayedLoopVideos.forEach(function(video) {
+    demoObserver.observe(video);
+  });
+} else {
+  delayedLoopVideos.forEach(function(video) {
+    video.preload = 'auto';
+    video.load();
+    playDemo(video);
+  });
+}
 
 
 // External links

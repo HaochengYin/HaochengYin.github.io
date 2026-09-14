@@ -4,3 +4,6 @@
 # Editor & IDE
 .vscode/
 
+# Local asset conversion scripts
+utils/
+
