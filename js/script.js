@@ -53,7 +53,7 @@ snippets.forEach(function(snippet) {
 });
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+tooltipTriggerList.forEach(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 var clipboardSnippets = new ClipboardJS('[data-clipboard-snippet]', {
   target: function(trigger) {

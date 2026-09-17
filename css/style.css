@@ -1,7 +1,15 @@
 :root {
 
+  /* Georgia Tech brand palette */
+  --gt-navy: #051E39;
+  --gt-medium-navy: #003D69;
+  --gt-bright-blue: #004C97;
+  --gt-dark-gold: #8F713D;
+  --gt-gold: #B39051;
+  --gt-light-gold: #DEBD88;
+
   /* --cardinal: #750014; */
-  --cardinal: #857437;
+  --cardinal: var(--gt-dark-gold);
   --very-light-orange: #fdf3ea;
   --very-light-gray: #f1f1f1;
   --light-gray: #c2c0bf;
@@ -23,7 +31,7 @@
 }
 
 body {
-  font-family: "Roboto", "Helvetica Neue", Ubuntu, Arial, PingFang, SimHei, sans-serif;
+  font-family: "Inter", "Helvetica Neue", Ubuntu, Arial, PingFang, SimHei, sans-serif;
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: black;
@@ -44,13 +52,14 @@ body .row {
 }
 
 a {
-  color: var(--cardinal);
+  color: var(--gt-medium-navy);
   text-decoration: none;
-  transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+  text-underline-offset: 2px;
+  transition: color 0.1s ease-in-out;
 }
 
 a:hover {
-  color: var(--cardinal);
+  color: var(--gt-bright-blue);
   text-decoration: underline;
 }
 
@@ -159,11 +168,12 @@ a:hover {
  *------------------*/
 
 .bio-wrapper #more-trigger {
-  color: #003057;
+  color: var(--gt-medium-navy);
+  text-decoration: none;
 }
 
 .bio-wrapper #more-trigger:hover {
-  color: #003057;
+  color: var(--gt-medium-navy);
   text-decoration: underline;
 }
 
@@ -180,49 +190,57 @@ a:hover {
 .pub-wrapper .title a {
   color: black;
   font-weight: bold;
-}
-
-.pub-wrapper .title a:hover {
-  color: var(--cardinal);
   text-decoration: none;
 }
 
-
-.pub-wrapper .link a {
-  color: #4682b4;
+.pub-wrapper .title a:hover {
+  color: var(--gt-dark-gold);
+  text-decoration: none;
 }
-
-.pub-wrapper .link a:hover {
-  color: #4682b4;
-  text-decoration: underline;
-}
-
-.pub-wrapper .link .venue a {
-  color: #003057;
-  font-weight: bold;
-}
-
-.pub-wrapper .link .venue a:hover {
-  color: #003057;
-  text-decoration: underline;
-}
-
-
 
 .pub-wrapper .authors {
-  color: #606060;
+  color: #444;
 }
 
 .pub-wrapper .authors a {
-  color: #606060;
+  color: #444;
+  text-decoration: none;
+}
+
+.pub-wrapper .authors a:hover {
+  color: #444;
+  text-decoration: underline;
 }
 
 .pub-wrapper .authors me {
-  color: #4a4a4a;
-  font-weight: bold;
+  color: #000;
+  font-weight: 500;
 }
 
-.pub-wrapper .figure img, .figure video {
+.pub-wrapper .link .venue a,
+.pub-wrapper .link .venue a:hover {
+  color: var(--gt-medium-navy);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pub-wrapper .link .venue a:hover {
+  text-decoration: underline;
+}
+
+/* Direct children only, so the venue anchor keeps body size */
+.pub-wrapper .link > a {
+  color: var(--gt-bright-blue);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.pub-wrapper .link > a:hover {
+  color: var(--gt-bright-blue);
+  text-decoration: underline;
+}
+
+.pub-wrapper .figure video {
   max-width: 240px;
   width: 100%;
 }
