@@ -8,6 +8,10 @@
   --gt-gold: #B39051;
   --gt-light-gold: #DEBD88;
 
+  /* Slightly lifted GT Bright Blue, so links stand apart from black text (7.39:1 on white) */
+  --link-color: #0A55A3;
+  --link-hover-color: var(--gt-navy);
+
   /* --cardinal: #750014; */
   --cardinal: var(--gt-dark-gold);
   --very-light-orange: #fdf3ea;
@@ -52,14 +56,15 @@ body .row {
 }
 
 a {
-  color: var(--gt-medium-navy);
+  color: var(--link-color);
+  font-weight: 500;
   text-decoration: none;
   text-underline-offset: 2px;
   transition: color 0.1s ease-in-out;
 }
 
 a:hover {
-  color: var(--gt-bright-blue);
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
@@ -167,14 +172,42 @@ a:hover {
  * Bio
  *------------------*/
 
+/* Lora runs smaller than Inter, so scale it up to match */
+.bio-wrapper em {
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.08em;
+}
+
 .bio-wrapper #more-trigger {
-  color: var(--gt-medium-navy);
+  color: var(--link-color);
+  font-weight: normal;
   text-decoration: none;
 }
 
 .bio-wrapper #more-trigger:hover {
-  color: var(--gt-medium-navy);
+  color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+/*------------------
+ * News
+ *------------------*/
+
+.news-wrapper .news-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.news-wrapper .news-list li + li {
+  margin-top: 6px;
+}
+
+.news-wrapper .news-date {
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 0.93em;
+  color: #34445A;
+  margin-right: 4px;
 }
 
 /*------------------
@@ -187,9 +220,20 @@ a:hover {
   padding-bottom: 10px;
 }
 
+/* Keep publication links at their original weight */
+.pub-wrapper a {
+  font-weight: normal;
+}
+
+/* ~15px on desktop, ~17px on mobile */
+.pub-wrapper .title {
+  font-size: 1.07em;
+  margin-bottom: 4px;
+}
+
 .pub-wrapper .title a {
   color: black;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -199,16 +243,16 @@ a:hover {
 }
 
 .pub-wrapper .authors {
-  color: #444;
+  color: #666;
 }
 
 .pub-wrapper .authors a {
-  color: #444;
+  color: #666;
   text-decoration: none;
 }
 
 .pub-wrapper .authors a:hover {
-  color: #444;
+  color: #666;
   text-decoration: underline;
 }
 
